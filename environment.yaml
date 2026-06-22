@@ -1,0 +1,23 @@
+name: gausslora
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.8
+  - pip
+  - pip:
+    - transformers
+    - datasets
+    - accelerate
+    - evaluate
+    - scikit-learn
+    - matplotlib
+    - seaborn
+    - pyyaml
+    - tqdm
+    - wandb

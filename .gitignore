@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+wandb/
+saved_adapters/
+plots/*
+!plots/.gitkeep
+.DS_Store
+.env

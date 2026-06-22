@@ -1,0 +1,49 @@
+PROJECT_name: "gausslora"
+
+MODELS_TO_BENCHMARK:
+  - "google/vit-base-patch16-224"
+
+BATCH_SIZE: 128
+GRAD_ACCUM_STEPS: 1
+TRAIN_STEPS: 600
+TRAIN_EPOCHS: 20
+LOG_FREQ: 50
+
+USE_SCHEDULER: True
+USE_AUGMENTATION: False
+OPTIMIZER: "AdamW"
+
+DATASETS:
+  - "stanfordcars"
+
+COLLECT_WEIGHTS: True
+SAVE_DIR: "saved_adapters"
+PLOTS_DIR: "plots"
+
+EXPERIMENTS:
+  - name: "Lora rank 4"
+    adapter_classes: ["LoraAdapter"]
+    target_strategy: ["query", "value"]
+    adapter_dim: 4
+    lr: 0.002
+
+  - name: "GAUSSIAN SPLATTING"
+    adapter_classes: ["FastGaussianSplattingAdapter"]
+    target_strategy: ["query", "value"]
+    num_gaussians: 81
+    adapter_dim: 81
+    lr: 0.002
+
+  - name: "Lora r4 + GS"
+    adapter_classes: ["LoraAdapter", "FastGaussianSplattingAdapter"]
+    target_strategy: ["query", "value"]
+    adapter_dim: 4
+    num_gaussians: 81
+    lr: 0.002
+
+  - name: "Lora r3 + GS"
+    adapter_classes: ["LoraAdapter", "FastGaussianSplattingAdapter"]
+    target_strategy: ["query", "value"]
+    adapter_dim: 3
+    num_gaussians: 81
+    lr: 0.002
