@@ -1,9 +1,3 @@
-# GaussLoRA
-
-Minimal training repository for ViT fine-tuning with **LoRA** and **Fast Gaussian Splatting** adapters.
-
-Derived from `inrlora`, trimmed to only the adapters and training logic needed for LoRA + Gaussian splatting experiments.
-
 ## Structure
 
 ```
